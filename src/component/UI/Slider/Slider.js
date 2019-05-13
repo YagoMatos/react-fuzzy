@@ -10,28 +10,20 @@ const styles = {
   },
   slider: {
     padding: '0px 22px',
+    background: '#000',
   },
 };
 
 class VerticalSlider extends Component {
-  state = {
-    value: 50,
-  };
-
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
-
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
 
     return (
       <div className={classes.root}>
         <Slider
           classes={{ container: classes.slider }}
-          value={value}
-          onChange={this.handleChange}
+          value={this.props.values}
+          onChange={this.props.changed}
           vertical
         />
       </div>
