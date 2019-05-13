@@ -10,7 +10,6 @@ const styles = {
   },
   slider: {
     padding: '0px 22px',
-    background: '#000',
   },
 };
 
