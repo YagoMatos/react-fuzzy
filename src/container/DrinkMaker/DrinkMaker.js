@@ -1,42 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import VerticalSlider from '../../component/UI/Slider/Slider';
 import './DrinkMaker.css';
 
-class DrinkMaker extends Component {
-  state = {
-    first: 50,
-    second: 50,
-    value: 50,
-  };
+export default function DrinkMaker() {
+  const [cokeValue, setCokeValue] = useState(50);
+  const [runValue, setRunValue] = useState(50);
+  const [iceValue, setIceValue] = useState(50);
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
-
-  render() {
-    return (
-      <div className="container">
-        <div className="content-item">
-          <VerticalSlider
-            values={this.state.value}
-            changed={this.handleChange}
-          />
-        </div>
-        <div className="content-item">
-          <VerticalSlider
-            values={this.state.value}
-            changed={this.handleChange}
-          />
-        </div>
-        <div className="content-item">
-          <VerticalSlider
-            values={this.state.value}
-            changed={this.handleChange}
-          />
-        </div>
+  return (
+    <div className="container">
+      <div className="content-item">
+        <VerticalSlider
+          values={cokeValue}
+          onChange={(e, newCokeValue) => setCokeValue(newCokeValue)}
+        />
       </div>
-    );
-  }
+      <div className="content-item">
+        <VerticalSlider
+          values={runValue}
+          onChange={(e, newRunValue) => setRunValue(newRunValue)}
+        />
+      </div>
+      <div className="content-item">
+        <VerticalSlider
+          values={iceValue}
+          onChange={(event, newIceValue) => setIceValue(newIceValue)}
+        />
+      </div>
+    </div>
+  );
 }
-
-export default DrinkMaker;

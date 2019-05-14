@@ -6,23 +6,23 @@ import Slider from '@material-ui/lab/Slider';
 const styles = {
   root: {
     display: 'flex',
-    height: 300,
+    height: 230,
   },
   slider: {
-    padding: '0px 22px',
+    padding: '0px 15px',
   },
 };
 
 class VerticalSlider extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, values, onChange } = this.props;
 
     return (
       <div className={classes.root}>
         <Slider
           classes={{ container: classes.slider }}
-          value={this.props.values}
-          onChange={this.props.changed}
+          value={values}
+          onChange={onChange}
           vertical
         />
       </div>
