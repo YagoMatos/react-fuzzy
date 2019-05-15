@@ -1,4 +1,12 @@
 .container {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content {
   background-color: #3a434f;
   padding: 2em;
   margin: 0;
@@ -8,4 +16,6 @@
 }
 
 .content-item {
+  display: flex;
+  flex-direction: column-reverse;
 }
