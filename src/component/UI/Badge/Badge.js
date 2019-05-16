@@ -1,14 +1,5 @@
 import React from 'react';
 
-const badge = props => (
-  <input
-    type="number"
-    min="0"
-    max="100"
-    disabled
-    value={props.value}
-    onChange={props.onChange}
-  />
-);
+const badge = props => <span>{props.value}</span>;
 
 export default badge;
