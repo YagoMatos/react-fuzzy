@@ -15,19 +15,15 @@ const styles = {
 };
 
 class RadioButtons extends React.Component {
-  state = {
-    selectedValue: 'a',
-  };
-
   render() {
-    //const { classes } = this.props;
+    const { checked, onChange, value } = this.props;
 
     return (
       <div>
         <Radio
-          checked={this.props.checked}
-          onChange={this.props.handleChange}
-          value={this.props.values}
+          checked={checked}
+          onChange={onChange}
+          value={value}
           name="radio-button-demo"
           aria-label="coke"
         />

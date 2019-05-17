@@ -15,13 +15,13 @@ const styles = {
 
 class VerticalSlider extends Component {
   render() {
-    const { classes, values, onChange } = this.props;
+    const { classes, value, onChange } = this.props;
 
     return (
       <div className={classes.root}>
         <Slider
           classes={{ container: classes.slider }}
-          value={values}
+          value={value}
           onChange={onChange}
           vertical
         />

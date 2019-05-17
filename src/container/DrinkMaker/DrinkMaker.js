@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import VerticalSlider from '../../component/UI/Slider/Slider';
 import Button from '../../component/UI/Button/Button';
-import Badge from '../../component/UI/Badge/Badge';
 import RadioButon from '../../component/UI/RadioButton/RadioButton';
+import IngredientsCard from '../../component/Layout/IngredientsCard/IngredientsCard';
 
 import './DrinkMaker.css';
 
@@ -10,45 +9,34 @@ export default function DrinkMaker() {
   const [cocaValue, setCocaValue] = useState(0);
   const [runValue, setRunValue] = useState(0);
   const [iceValue, setIceValue] = useState(0);
-  const [cokeValue, setCokeValue] = useState('coke');
-  const [pespiValue, setPepsiValue] = useState('pespi');
+  const [pespiOrCokeValue, setPepsiOrCokeValue] = useState('coke');
 
   return (
     <div className="container">
       <div>
         <RadioButon
-          checked={cokeValue === 'coke'}
-          values={cokeValue}
-          onChange={(e, newCocaValue) => setCokeValue('coke')}
+          checked={pespiOrCokeValue === 'coke'}
+          value="coke"
+          onChange={e => setPepsiOrCokeValue(e.target.value)}
         />
         <RadioButon
-          values={pespiValue}
-          checked={pespiValue === 'pespi'}
-          onChange={(e, newPespiValue) => setPepsiValue('pepsi')}
+          value="pepsi"
+          checked={pespiOrCokeValue === 'pepsi'}
+          onChange={e => setPepsiOrCokeValue(e.target.value)}
         />
       </div>
       <div className="content">
-        <div className="content-item">
-          <VerticalSlider
-            values={cocaValue}
-            onChange={(e, newCocaValue) => setCocaValue(newCocaValue)}
-          />
-          <Badge value={cocaValue.toFixed(0)} />
-        </div>
-        <div className="content-item">
-          <VerticalSlider
-            values={runValue}
-            onChange={(e, newRunValue) => setRunValue(newRunValue)}
-          />
-          <Badge value={runValue.toFixed(0)} />
-        </div>
-        <div className="content-item">
-          <VerticalSlider
-            values={iceValue}
-            onChange={(e, newIceValue) => setIceValue(newIceValue)}
-          />
-          <Badge value={iceValue.toFixed(0)} />
-        </div>
+        <IngredientsCard
+          cocaValue={cocaValue}
+          onChangeValueCoca={(e, newCocaValue) => setCocaValue(newCocaValue)}
+          badgeCocaValue={cocaValue.toFixed(0)}
+          runValue={runValue}
+          onChangeRunValue={(e, newRunValue) => setRunValue(newRunValue)}
+          badgeRunValue={runValue.toFixed(0)}
+          iceValue={iceValue}
+          onChangeIceValue={(e, newIceValue) => setIceValue(newIceValue)}
+          badgeIceValue={iceValue.toFixed(0)}
+        />
       </div>
       <div className="content-tools">
         <Button style="btn-clear">Limpar</Button>
