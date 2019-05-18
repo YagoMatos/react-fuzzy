@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link, Route } from 'react-router-dom';
+
+import Drink from '../Drink/Drink';
 import Button from '../../component/UI/Button/Button';
 import RadioButon from '../../component/UI/RadioButton/RadioButton';
 import IngredientsCard from '../../component/Layout/IngredientsCard/IngredientsCard';
@@ -11,8 +14,15 @@ export default function DrinkMaker() {
   const [iceValue, setIceValue] = useState(0);
   const [pespiOrCokeValue, setPepsiOrCokeValue] = useState('coke');
 
+  const Ingredients = {
+    coca: cocaValue,
+    run: runValue,
+    ice: iceValue,
+    cokeOrPespi: pespiOrCokeValue,
+  };
+
   return (
-    <div className="container">
+    <div className="DrinkMaker-container">
       <div>
         <RadioButon
           checked={pespiOrCokeValue === 'coke'}
@@ -25,7 +35,7 @@ export default function DrinkMaker() {
           onChange={e => setPepsiOrCokeValue(e.target.value)}
         />
       </div>
-      <div className="content">
+      <div className="DrinkMaker-content">
         <IngredientsCard
           cocaValue={cocaValue}
           onChangeValueCoca={(e, newCocaValue) => setCocaValue(newCocaValue)}
@@ -40,8 +50,18 @@ export default function DrinkMaker() {
       </div>
       <div className="content-tools">
         <Button style="btn-clear">Limpar</Button>
-        <Button style="btn-calcular">Calcular</Button>
+        <Link
+          to={{
+            pathname: '/drink',
+            state: {
+              ingredients: Ingredients,
+            },
+          }}
+        >
+          <Button style="btn-calcular">Calcular</Button>
+        </Link>
       </div>
+      <Route path="/drink" render={() => <Drink />} />
     </div>
   );
 }
