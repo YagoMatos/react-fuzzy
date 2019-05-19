@@ -12,19 +12,11 @@
 
 .Drink-container {
   display: flex;
-  width: 80%;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
 }
 
-.Drink-content {
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  background-color: #3a434f;
+.Degree-result {
   padding: 2em;
-  margin: 0;
-  width: 80%;
-  display: flex;
-  justify-content: space-around;
 }
