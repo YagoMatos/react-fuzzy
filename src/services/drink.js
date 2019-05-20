@@ -3,30 +3,61 @@ const maxBetweenDregree = (a, b, c) => {
 };
 
 const minBetweenDregree = (a, b, c) => {
-  return Math.max(a, Math.min(b, c));
+  return Math.min(a, Math.min(b, c));
 };
 
-export const drinkStrongDegree = () => {
-  const value = 0;
-  let pertinenceDegree = 0;
-  if (value >= 50 && value <= 52) pertinenceDegree = 1;
-  if (value >= 52 && value <= 54) pertinenceDegree = (54 - value) / (54 - 52);
-  return pertinenceDegree;
+export const drinkValue = (soft, weak, strong) => {
+  let value = 0;
+
+  if (weak === 1) {
+    return (value = '15,00'); //palate: 'Fraco' };
+  }
+  if (soft === 1) {
+    return (value = '20,00'); //palate: 'Suave'};
+  }
+  if (strong === 1) {
+    return (value = '25,00'); //palate: 'Forte'};
+  }
 };
 
-export const drinkWeakDegree = drinkValue => {
-  const value = drinkValue;
-  let pertinenceDegree = 0;
-  if (value >= 58 && value <= 60) pertinenceDegree = 1;
-  if (value >= 56 && value <= 58) pertinenceDegree = (value - 56) / (58 - 56);
-  return pertinenceDegree;
+export const drinkPalate = (soft, weak, strong) => {
+  let palate = 0;
+
+  if (weak === 1) {
+    return (palate = 'Fraco');
+  }
+  if (soft === 1) {
+    return (palate = 'Suave');
+  }
+  if (strong === 1) {
+    return (palate = 'Forte');
+  }
 };
 
-export const drinkSoftDegree = drinkValue => {
-  const value = drinkValue;
-  let pertinenceDegree = 0;
-  if (value >= 52 && value <= 54) pertinenceDegree = (value - 52) / (54 - 52);
-  if (value >= 54 && value <= 56) pertinenceDegree = 1;
-  if (value >= 56 && value <= 58) pertinenceDegree = (58 - value) / (58 - 56);
-  return pertinenceDegree;
+export const drinkStrongDegree = (run, ice, softDrink) => {
+  const degreeA = minBetweenDregree(ice.pertinence, softDrink.strong, run.soft);
+  const degreeB = minBetweenDregree(
+    ice.pertinence,
+    softDrink.strong,
+    run.strong
+  );
+  const degreeC = minBetweenDregree(ice.pertinence, softDrink.soft, run.soft);
+  const degree = maxBetweenDregree(degreeA, degreeB, degreeC);
+  return degree;
+};
+
+export const drinkWeakDegree = (run, ice, softDrink) => {
+  const degreeA = minBetweenDregree(ice.pertinence, softDrink.weak, run.weak);
+  const degreeB = minBetweenDregree(ice.pertinence, softDrink.weak, run.soft);
+  const degreeC = minBetweenDregree(ice.pertinence, softDrink.soft, run.weak);
+  const degree = maxBetweenDregree(degreeA, degreeB, degreeC);
+  return degree;
+};
+
+export const drinkSoftDegree = (run, ice, softDrink) => {
+  const degreeA = minBetweenDregree(ice.pertinence, softDrink.strong, run.weak);
+  const degreeB = minBetweenDregree(ice.pertinence, softDrink.soft, run.soft);
+  const degreeC = minBetweenDregree(ice.pertinence, softDrink.weak, run.strong);
+  const degree = maxBetweenDregree(degreeA, degreeB, degreeC);
+  return degree;
 };

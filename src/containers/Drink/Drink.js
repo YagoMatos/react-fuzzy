@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import DegreeCard from '../../components/Layout/DegreeCard/DegreeCard';
 import IceDegreeCard from '../../components/Layout/DegreeCard/IceDegreeCard/IceDegreeCard';
+import DrinkDegreeCard from '../../components/Layout/DegreeCard/DrinkDegreeCard/DrinkDegreeCard';
 
 import {
   cokeSoftDegree,
@@ -19,11 +20,6 @@ import {
   runStrongDegree,
 } from '../../services/run';
 import { iceDegree } from '../../services/ice';
-import {
-  drinkStrongDegree,
-  drinkWeakDegree,
-  drinkSoftDegree,
-} from '../../services/drink';
 
 import './Drink.css';
 
@@ -33,7 +29,7 @@ class DrinkResult extends Component {
     ice: {},
     softDrink: {},
     run: {},
-    drink: {},
+    pepsi: {},
   };
 
   componentDidMount() {
@@ -43,7 +39,7 @@ class DrinkResult extends Component {
         iceValue: ingredients.ice,
         runValue: ingredients.run,
         softDrinkValue: ingredients.softDrink,
-        cokeOrPepsiValue: ingredients.cokeOrPespi,
+        cokeOrPepsiValue: ingredients.cokeOrPepsi,
       },
       run: {
         name: 'Run',
@@ -55,33 +51,28 @@ class DrinkResult extends Component {
         name: 'Gelo',
         pertinence: iceDegree(ingredients.ice),
       },
-      // drink: {
-      //   name: 'Cuba-Livre',
-      //   strong: drinkStrongDegree(),
-      //   weak: drinkWeakDegree(),
-      //   soft: drinkSoftDegree()
-      // },
-    });
-
-    //if (ingredients.cokeOrPepsiValue === 'coke'){
-    this.setState({
       softDrink: {
         name: 'Coca-Cola',
         strong: cokeStrongDegree(ingredients.softDrink),
         weak: cokeWeakDegree(ingredients.softDrink),
         soft: cokeSoftDegree(ingredients.softDrink),
       },
+      pepsi: {
+        name: 'Pespi',
+        strong: pepsiStrongDegree(ingredients.softDrink),
+        weak: pepsiWeakDegree(ingredients.softDrink),
+        soft: pepsiSoftDegree(ingredients.softDrink),
+      },
     });
-    //}
   }
 
-  render() {
-    const { softDrink, ice, run, drink } = this.state;
-    const { softDrinkValue, runValue, iceValue } = this.state.ingredients;
+  pespiOrCoca = cokeOrPepsiValue => {
+    const { softDrink, pepsi } = this.state;
+    const { softDrinkValue } = this.state.ingredients;
 
-    return (
-      <div className="Drink-header">
-        <div className="Drink-container">
+    switch (cokeOrPepsiValue) {
+      case 'coke':
+        return (
           <DegreeCard
             title={softDrink.name}
             value={softDrinkValue}
@@ -89,6 +80,28 @@ class DrinkResult extends Component {
             weak={softDrink.weak}
             soft={softDrink.soft}
           />
+        );
+      case 'pepsi':
+        return (
+          <DegreeCard
+            title={pepsi.name}
+            value={softDrinkValue}
+            strong={pepsi.strong}
+            weak={pepsi.weak}
+            soft={pepsi.soft}
+          />
+        );
+    }
+  };
+
+  render() {
+    const { softDrink, pepsi, ice, run } = this.state;
+    const { runValue, iceValue, cokeOrPepsiValue } = this.state.ingredients;
+
+    return (
+      <div className="Drink-header">
+        <div className="Drink-container">
+          {this.pespiOrCoca(cokeOrPepsiValue)}
           <DegreeCard
             title={run.name}
             value={runValue}
@@ -103,13 +116,22 @@ class DrinkResult extends Component {
           />
         </div>
         <div className="Degree-result">
-          <DegreeCard
-            title={run.name}
-            value={runValue}
-            strong={run.strong}
-            weak={run.weak}
-            soft={run.soft}
-          />
+          {cokeOrPepsiValue === 'coke' && (
+            <DrinkDegreeCard
+              title="Cuba-Livre"
+              ice={ice}
+              run={run}
+              softDrink={softDrink}
+            />
+          )}
+          {cokeOrPepsiValue === 'pepsi' && (
+            <DrinkDegreeCard
+              title="Cuba-Livre"
+              ice={ice}
+              run={run}
+              softDrink={pepsi}
+            />
+          )}
         </div>
       </div>
     );
