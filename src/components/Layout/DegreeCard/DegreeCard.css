@@ -19,7 +19,7 @@
 
 .Degree-body {
   padding: 30px;
-  background-color: #3a434f;
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -28,4 +28,5 @@
 .Degree-item {
   padding: 5px;
   font-size: 12pt;
+  color: #676363;
 }

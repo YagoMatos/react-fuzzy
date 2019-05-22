@@ -1,6 +1,10 @@
 .Drink-header {
-  background: white;
-  background: linear-gradient(189deg, #4ac1ff, #795bb0);
+  background: linear-gradient(
+    to top right,
+    #ff5263 0%,
+    #ff7381 35%,
+    #fcbd01 100%
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;
