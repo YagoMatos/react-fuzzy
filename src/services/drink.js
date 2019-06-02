@@ -10,16 +10,31 @@ export const drinkValue = (soft, weak, strong) => {
   // eslint-disable-next-line no-unused-vars
   let value = 0;
 
-  if (weak === 1) {
-    return (value = '15,00'); //palate: 'Fraco' };
-  }
-  if (soft === 1) {
+  // check some palate is the same
+  if (soft === weak && weak !== 0) {
     return (value = '20,00'); //palate: 'Suave'};
   }
-  if (strong === 1) {
+
+  if (strong === weak && weak !== 0) {
     return (value = '25,00'); //palate: 'Forte'};
   }
 
+  if (strong === soft && soft !== 0) {
+    return (value = '25,00'); //palate: 'Forte'};
+  }
+
+  // individual tests
+  if (weak !== 0) {
+    return (value = '15,00'); //palate: 'Fraco' };
+  }
+  if (soft !== 0) {
+    return (value = '20,00'); //palate: 'Suave'};
+  }
+  if (strong !== 0) {
+    return (value = '25,00'); //palate: 'Forte'};
+  }
+
+  // if is not cuba livre
   return (value = '30,00');
 };
 
@@ -35,6 +50,18 @@ export const drinkPalate = (
   // eslint-disable-next-line no-unused-vars
   let palate = 0;
 
+  // check some pertinence is the same
+  if (soft === weak && weak !== 0) {
+    return (palate = 'Paladar do Drink: Suave');
+  }
+  if (strong === weak && weak !== 0) {
+    return (palate = 'Paladar do Drink: Forte');
+  }
+  if (strong === soft && soft !== 0) {
+    return (palate = 'Paladar do Drink: Forte');
+  }
+
+  // individual tests
   if (weak !== 0) {
     return (palate = 'Paladar do Drink: Fraco');
   }
@@ -44,6 +71,8 @@ export const drinkPalate = (
   if (strong !== 0) {
     return (palate = 'Paladar do Drink: Forte');
   }
+
+  // if is not cuba livre
   return notDrink(soft, weak, strong, iceQtd, runQtd, softQtd, softName);
 };
 
