@@ -11,6 +11,8 @@ const styles = {
   },
   slider: {
     padding: '0px 15px',
+    display: 'flex',
+    justifyContent: 'center',
   },
 };
 

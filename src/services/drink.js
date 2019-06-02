@@ -18,20 +18,23 @@ export const drinkValue = (soft, weak, strong) => {
   if (strong === 1) {
     return (value = '25,00'); //palate: 'Forte'};
   }
+
+  return (value = '30,00');
 };
 
 export const drinkPalate = (soft, weak, strong) => {
   let palate = 0;
 
   if (weak === 1) {
-    return (palate = 'Fraco');
+    return (palate = 'Paladar do Drink: Fraco');
   }
   if (soft === 1) {
-    return (palate = 'Suave');
+    return (palate = 'Paladar do Drink: Suave');
   }
   if (strong === 1) {
-    return (palate = 'Forte');
+    return (palate = 'Paladar do Drink: Forte');
   }
+  return 'Não é Cuba Livre!';
 };
 
 export const drinkStrongDegree = (run, ice, softDrink) => {

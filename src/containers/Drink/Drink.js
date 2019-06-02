@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Link, Route } from 'react-router-dom';
 
+import DrinkMaker from '../DrinkMaker/DrinkMaker';
 import DegreeCard from '../../components/Layout/DegreeCard/DegreeCard';
 import IceDegreeCard from '../../components/Layout/DegreeCard/IceDegreeCard/IceDegreeCard';
 import DrinkDegreeCard from '../../components/Layout/DegreeCard/DrinkDegreeCard/DrinkDegreeCard';
+import Button from '../../components/UI/Button/Button';
 
 import {
   cokeSoftDegree,
@@ -132,6 +135,11 @@ class DrinkResult extends Component {
               softDrink={pepsi}
             />
           )}
+        </div>
+        <div>
+          <Link to="/">
+            <Button style="btn-calcular">Voltar</Button>
+          </Link>
         </div>
       </div>
     );

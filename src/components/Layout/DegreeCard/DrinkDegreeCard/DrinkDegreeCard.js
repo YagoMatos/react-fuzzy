@@ -32,7 +32,7 @@ const degreeCard = props => {
         </div>
         <div className="values">
           <div className="Degree-value">Valor: R$ {value}</div>
-          <div className="Degree-item">Paladar do Drink: {palate}</div>
+          <div className="Degree-item">{palate}</div>
         </div>
       </div>
     </div>

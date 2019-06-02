@@ -12,3 +12,9 @@
   text-align: center;
   justify-content: space-around;
 }
+
+.Degree-value {
+  padding: 5px;
+  font-size: 15pt;
+  color: #676363;
+}
