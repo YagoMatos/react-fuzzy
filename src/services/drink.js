@@ -22,19 +22,56 @@ export const drinkValue = (soft, weak, strong) => {
   return (value = '30,00');
 };
 
-export const drinkPalate = (soft, weak, strong) => {
+export const drinkPalate = (
+  soft,
+  weak,
+  strong,
+  iceQtd,
+  runQtd,
+  softQtd,
+  softName
+) => {
   let palate = 0;
 
-  if (weak === 1) {
+  if (weak !== 0) {
     return (palate = 'Paladar do Drink: Fraco');
   }
-  if (soft === 1) {
+  if (soft !== 0) {
     return (palate = 'Paladar do Drink: Suave');
   }
-  if (strong === 1) {
+  if (strong !== 0) {
     return (palate = 'Paladar do Drink: Forte');
   }
-  return 'Não é Cuba Livre!';
+  return notDrink(soft, weak, strong, iceQtd, runQtd, softQtd, softName);
+};
+
+const notDrink = (soft, weak, strong, iceQtd, runQtd, softQtd, softName) => {
+  const resume = 'Não é Cuba Livre! Devido as quantidades inadequadas de: ';
+  let qtd = {
+    run: '',
+    ice: '',
+    soft: '',
+  };
+
+  if (strong === 0 && weak === 0 && soft === 0) {
+    if (iceQtd < 20 || iceQtd > 20) {
+      qtd.ice = '- Gelo -';
+    }
+    if (runQtd < 10 || runQtd > 30) {
+      qtd.run = ' Run -';
+    }
+    if (softName === 'coke') {
+      if (softQtd < 50 || softQtd > 60) {
+        qtd.soft = ' Coca-Cola';
+      }
+    }
+    if (softName === 'pepsi') {
+      if (softQtd < 60 || softQtd > 70) {
+        qtd.soft = ' Pespi';
+      }
+    }
+  }
+  return resume + qtd.ice + qtd.run + qtd.soft;
 };
 
 export const drinkStrongDegree = (run, ice, softDrink) => {

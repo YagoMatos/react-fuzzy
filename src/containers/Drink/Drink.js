@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import DrinkMaker from '../DrinkMaker/DrinkMaker';
 import DegreeCard from '../../components/Layout/DegreeCard/DegreeCard';
 import IceDegreeCard from '../../components/Layout/DegreeCard/IceDegreeCard/IceDegreeCard';
 import DrinkDegreeCard from '../../components/Layout/DegreeCard/DrinkDegreeCard/DrinkDegreeCard';
@@ -99,7 +98,12 @@ class DrinkResult extends Component {
 
   render() {
     const { softDrink, pepsi, ice, run } = this.state;
-    const { runValue, iceValue, cokeOrPepsiValue } = this.state.ingredients;
+    const {
+      runValue,
+      iceValue,
+      cokeOrPepsiValue,
+      softDrinkValue,
+    } = this.state.ingredients;
 
     return (
       <div className="Drink-header">
@@ -121,24 +125,32 @@ class DrinkResult extends Component {
         <div className="Degree-result">
           {cokeOrPepsiValue === 'coke' && (
             <DrinkDegreeCard
-              title="Cuba-Livre"
+              title="Resultado do Drink:"
               ice={ice}
               run={run}
               softDrink={softDrink}
+              iceQtd={iceValue}
+              runQtd={runValue}
+              softQtd={softDrinkValue}
+              softName={cokeOrPepsiValue}
             />
           )}
           {cokeOrPepsiValue === 'pepsi' && (
             <DrinkDegreeCard
-              title="Cuba-Livre"
+              title="Resultado do Drink:"
               ice={ice}
               run={run}
               softDrink={pepsi}
+              iceQtd={iceValue}
+              runQtd={runValue}
+              softQtd={softDrinkValue}
+              softName={cokeOrPepsiValue}
             />
           )}
         </div>
         <div>
           <Link to="/">
-            <Button style="btn-calcular">Voltar</Button>
+            <Button style="btn-goBack">Voltar</Button>
           </Link>
         </div>
       </div>

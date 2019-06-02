@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 
 import Drink from '../Drink/Drink';
@@ -12,7 +12,7 @@ import './DrinkMaker.css';
 export default function DrinkMaker() {
   const inputRef = useRef();
   const [softDrinkValue, setSoftDrinkValue] = useState(0);
-  const [runValue, setRunValue] = useState(0);
+  let [runValue, setRunValue] = useState(0);
   const [iceValue, setIceValue] = useState(0);
   const [pepsiOrCokeValue, setPepsiOrCokeValue] = useState('coke');
 
@@ -23,20 +23,22 @@ export default function DrinkMaker() {
     cokeOrPepsi: pepsiOrCokeValue,
   };
 
-  const handleChanged = value => {
+  function handleChanged(value) {
     if (value > 100) return 100;
     if (value < 0) return 0;
     return value;
-  };
+  }
 
   return (
     <div className="DrinkMaker-container">
-      <div>
+      <div className="DrinkMaker-radios">
+        <p className="DrinkMaker-title">Coca-Cola</p>
         <RadioButon
           checked={pepsiOrCokeValue === 'coke'}
           value="coke"
           onChange={e => setPepsiOrCokeValue(e.target.value)}
         />
+        <p className="DrinkMaker-title">Pepsi</p>
         <RadioButon
           value="pepsi"
           checked={pepsiOrCokeValue === 'pepsi'}
@@ -87,7 +89,6 @@ export default function DrinkMaker() {
       </div>
 
       <div className="content-tools">
-        <Button style="btn-clear">Limpar</Button>
         <Link
           to={{
             pathname: '/drink',
