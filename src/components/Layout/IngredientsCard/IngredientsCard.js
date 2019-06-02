@@ -5,9 +5,9 @@ import './IngredientsCard.css';
 
 const ingredientsCard = props => {
   const {
-    cocaValue,
-    onChangeValueCoca,
-    badgeCocaValue,
+    softDrinkValue,
+    onChangeSoftDrinkValue,
+    badgeSoftDrinkValue,
     runValue,
     onChangeRunValue,
     badgeRunValue,
@@ -19,8 +19,11 @@ const ingredientsCard = props => {
   return (
     <div className="content-ingredients">
       <div className="content-item">
-        <VerticalSlider value={cocaValue} onChange={onChangeValueCoca} />
-        <Badge value={badgeCocaValue} />
+        <VerticalSlider
+          value={softDrinkValue}
+          onChange={onChangeSoftDrinkValue}
+        />
+        <Badge value={badgeSoftDrinkValue} />
       </div>
       <div className="content-item">
         <VerticalSlider value={runValue} onChange={onChangeRunValue} />

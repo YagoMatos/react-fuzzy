@@ -7,9 +7,12 @@ const styles = {
   root: {
     display: 'flex',
     height: 230,
+    width: '50%',
   },
   slider: {
     padding: '0px 15px',
+    display: 'flex',
+    justifyContent: 'center',
   },
 };
 

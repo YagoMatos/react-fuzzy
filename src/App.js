@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import DrinkMaker from './container/DrinkMaker/DrinkMaker';
+import DrinkMaker from './containers/DrinkMaker/DrinkMaker';
 function App() {
   return (
     <div className="App">

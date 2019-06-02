@@ -1,0 +1,32 @@
+.Degree-content {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  margin: 0;
+  width: 25%;
+}
+
+.Degree-header {
+  align-items: center;
+  display: flex;
+  padding: 0px 20px;
+  background: #d6d4d4;
+  font-size: 12pt;
+}
+
+.Degree-title {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.Degree-body {
+  padding: 30px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.Degree-item {
+  padding: 5px;
+  font-size: 12pt;
+  color: #676363;
+}
