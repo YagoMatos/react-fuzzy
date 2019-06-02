@@ -23,7 +23,7 @@ import {
 } from '../../services/run';
 import { iceDegree } from '../../services/ice';
 
-import './Drink.css';
+import './DrinkResult.css';
 
 class DrinkResult extends Component {
   state = {

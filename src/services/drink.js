@@ -7,6 +7,7 @@ const minBetweenDregree = (a, b, c) => {
 };
 
 export const drinkValue = (soft, weak, strong) => {
+  // eslint-disable-next-line no-unused-vars
   let value = 0;
 
   if (weak === 1) {
@@ -31,6 +32,7 @@ export const drinkPalate = (
   softQtd,
   softName
 ) => {
+  // eslint-disable-next-line no-unused-vars
   let palate = 0;
 
   if (weak !== 0) {

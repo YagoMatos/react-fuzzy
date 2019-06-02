@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, Route } from 'react-router-dom';
 
-import Drink from '../Drink/Drink';
+import DrinkResult from '../DrinkResult/DrinkResult';
 import Button from '../../components/UI/Button/Button';
 import RadioButon from '../../components/UI/RadioButton/RadioButton';
 import VerticalSlider from '../../components/UI/Slider/Slider';
-import Badge from '../../components/UI/Badge/Badge';
 
 import './DrinkMaker.css';
 
@@ -98,7 +97,7 @@ export default function DrinkMaker() {
           <Button style="btn-calcular">Calcular</Button>
         </Link>
       </div>
-      <Route path="/drink" render={() => <Drink />} />
+      <Route path="/drink" render={() => <DrinkResult />} />
     </div>
   );
 }
