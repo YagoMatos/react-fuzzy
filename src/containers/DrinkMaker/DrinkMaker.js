@@ -3,8 +3,8 @@ import { Link, Route } from 'react-router-dom';
 
 import DrinkResult from '../DrinkResult/DrinkResult';
 import Button from '../../components/UI/Button/Button';
-import RadioButon from '../../components/UI/RadioButton/RadioButton';
-import VerticalSlider from '../../components/UI/Slider/Slider';
+import RadioCards from '../../components/Layout/RadioCards/RadioCards';
+import IngredientsCards from '../../components/Layout/IngredientsCard/IngredientsCard';
 
 import './DrinkMaker.css';
 
@@ -30,63 +30,37 @@ export default function DrinkMaker() {
 
   return (
     <div className="DrinkMaker-container">
-      <div className="DrinkMaker-radios">
-        <p className="DrinkMaker-title">Coca-Cola</p>
-        <RadioButon
-          checked={pepsiOrCokeValue === 'coke'}
-          value="coke"
-          onChange={e => setPepsiOrCokeValue(e.target.value)}
-        />
-        <p className="DrinkMaker-title">Pepsi</p>
-        <RadioButon
-          value="pepsi"
-          checked={pepsiOrCokeValue === 'pepsi'}
-          onChange={e => setPepsiOrCokeValue(e.target.value)}
-        />
+      <div className="DrinkMaker-title">
+        <h1>Prepare já o seu Cuba Livre!</h1>
+        <span>
+          Escolha e defina as quantidades dos ingredientes para formar a bebida:
+        </span>
       </div>
+      <RadioCards
+        checkedCoke={pepsiOrCokeValue === 'coke'}
+        valueCoke="coke"
+        onChange={e => setPepsiOrCokeValue(e.target.value)}
+        valuePespi="pepsi"
+        checkedPepsi={pepsiOrCokeValue === 'pepsi'}
+      />
       <div className="DrinkMaker-content">
-        <div className="content-ingredients">
-          <div className="content-item">
-            <VerticalSlider
-              value={softDrinkValue}
-              onChange={(e, newSoftDrinkValue) =>
-                setSoftDrinkValue(newSoftDrinkValue)
-              }
-            />
-            <input
-              ref={inputRef}
-              type="number"
-              value={softDrinkValue}
-              onChange={e => setSoftDrinkValue(handleChanged(e.target.value))}
-            />
-          </div>
-          <div className="content-item">
-            <VerticalSlider
-              value={runValue}
-              onChange={(e, newRunValue) => setRunValue(newRunValue)}
-            />
-            <input
-              ref={inputRef}
-              type="number"
-              value={runValue}
-              onChange={e => setRunValue(handleChanged(e.target.value))}
-            />
-          </div>
-          <div className="content-item">
-            <VerticalSlider
-              value={iceValue}
-              onChange={(e, newIceValue) => setIceValue(newIceValue)}
-            />
-            <input
-              ref={inputRef}
-              type="number"
-              value={iceValue}
-              onChange={e => setIceValue(handleChanged(e.target.value))}
-            />
-          </div>
-        </div>
+        <IngredientsCards
+          refInput={inputRef}
+          softDrinkValue={softDrinkValue}
+          runValue={runValue}
+          iceValue={iceValue}
+          onChangeRunValue={(e, newRunValue) => setRunValue(newRunValue)}
+          onChangeIceValue={(e, newIceValue) => setIceValue(newIceValue)}
+          onChangeSoftDrinkValue={(e, newSoftDrinkValue) =>
+            setSoftDrinkValue(newSoftDrinkValue)
+          }
+          onChangeInputSoft={e =>
+            setSoftDrinkValue(handleChanged(e.target.value))
+          }
+          onChangeInputRun={e => setRunValue(handleChanged(e.target.value))}
+          onChangeInputIce={e => setIceValue(handleChanged(e.target.value))}
+        />
       </div>
-
       <div className="content-tools">
         <Link
           to={{

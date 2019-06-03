@@ -1,0 +1,13 @@
+input[type='number'] {
+  width: 30%;
+  padding: 0 5px;
+  color: #fff;
+  background-color: #4c5969;
+  border: none;
+  font-weight: bold;
+  display: flex;
+  height: 30px;
+  font-size: 13pt;
+  margin-bottom: 11px;
+  align-self: center;
+}
