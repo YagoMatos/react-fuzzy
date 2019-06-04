@@ -10,6 +10,11 @@ export const drinkValue = (soft, weak, strong) => {
   // eslint-disable-next-line no-unused-vars
   let value = 0;
 
+  // if all are the same
+  if (soft === strong && strong === weak && strong !== 0) {
+    return (value = '25,00'); //palate: 'Forte'};
+  }
+
   // check some palate is the same
   if (soft === weak && weak !== 0) {
     return (value = '20,00'); //palate: 'Suave'};
@@ -49,6 +54,11 @@ export const drinkPalate = (
 ) => {
   // eslint-disable-next-line no-unused-vars
   let palate = 0;
+
+  // if all are the same
+  if (soft === strong && strong === weak && strong !== 0) {
+    return (palate = 'Paladar do Drink: Forte');
+  }
 
   // check some pertinence is the same
   if (soft === weak && weak !== 0) {
