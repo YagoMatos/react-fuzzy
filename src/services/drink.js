@@ -100,19 +100,19 @@ const notDrink = (soft, weak, strong, iceQtd, runQtd, softQtd, softName) => {
 
   if (strong === 0 && weak === 0 && soft === 0) {
     if (iceQtd < 20 || iceQtd > 20) {
-      qtd.ice = '- Gelo -';
+      qtd.ice = '- Gelo: Deve possuir 20 ml -';
     }
     if (runQtd < 10 || runQtd > 30) {
-      qtd.run = ' Run -';
+      qtd.run = ' Run: Deve possuir entre 10ml e 30ml -';
     }
     if (softName === 'coke') {
       if (softQtd < 50 || softQtd > 60) {
-        qtd.soft = ' Coca-Cola';
+        qtd.soft = ' Coca-Cola: Deve possuir entre 50ml e 60ml';
       }
     }
     if (softName === 'pepsi') {
       if (softQtd < 60 || softQtd > 70) {
-        qtd.soft = ' Pespi';
+        qtd.soft = ' Pespi: Deve possuir entre 60ml e 70ml';
       }
     }
   }
@@ -126,7 +126,7 @@ export const drinkStrongDegree = (run, ice, softDrink) => {
     softDrink.strong,
     run.strong
   );
-  const degreeC = minBetweenDregree(ice.pertinence, softDrink.soft, run.soft);
+  const degreeC = minBetweenDregree(ice.pertinence, softDrink.soft, run.strong);
   const degree = maxBetweenDregree(degreeA, degreeB, degreeC);
   return degree;
 };
