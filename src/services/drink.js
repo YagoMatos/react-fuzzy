@@ -28,14 +28,16 @@ export const drinkValue = (soft, weak, strong) => {
     return (value = '25,00'); //palate: 'Forte'};
   }
 
+  const drinkPertinence = maxBetweenDregree(soft, weak, strong);
+
   // individual tests
-  if (weak !== 0) {
+  if (weak === drinkPertinence && drinkPertinence !== 0) {
     return (value = '15,00'); //palate: 'Fraco' };
   }
-  if (soft !== 0) {
+  if (soft === drinkPertinence && drinkPertinence !== 0) {
     return (value = '20,00'); //palate: 'Suave'};
   }
-  if (strong !== 0) {
+  if (strong === drinkPertinence && drinkPertinence !== 0) {
     return (value = '25,00'); //palate: 'Forte'};
   }
 
@@ -60,7 +62,7 @@ export const drinkPalate = (
     return (palate = 'Paladar do Drink: Forte');
   }
 
-  // check some pertinence is the same
+  // check some pertinence  if is the same
   if (soft === weak && weak !== 0) {
     return (palate = 'Paladar do Drink: Suave');
   }
@@ -71,15 +73,17 @@ export const drinkPalate = (
     return (palate = 'Paladar do Drink: Forte');
   }
 
+  const drinkPertinence = maxBetweenDregree(soft, weak, strong);
+
   // individual tests
-  if (weak !== 0) {
-    return (palate = 'Paladar do Drink: Fraco');
+  if (weak === drinkPertinence && drinkPertinence !== 0) {
+    return (palate = 'Paladar do Drink: Fraco'); //palate: 'Fraco' };
   }
-  if (soft !== 0) {
-    return (palate = 'Paladar do Drink: Suave');
+  if (soft === drinkPertinence && drinkPertinence !== 0) {
+    return (palate = 'Paladar do Drink: Suave'); //palate: 'Suave'};
   }
-  if (strong !== 0) {
-    return (palate = 'Paladar do Drink: Forte');
+  if (strong === drinkPertinence && drinkPertinence !== 0) {
+    return (palate = 'Paladar do Drink: Forte'); //palate: 'Forte'};
   }
 
   // if is not cuba livre

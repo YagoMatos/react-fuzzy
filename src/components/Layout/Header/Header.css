@@ -1,0 +1,22 @@
+header {
+  background-color: #1b1f25;
+  width: 100%;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.header {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.header-title {
+  font-size: 15pt;
+  margin-left: 5px;
+  color: #fff;
+}
