@@ -5,6 +5,7 @@ import DegreeCard from '../../components/Layout/DegreeCard/DegreeCard';
 import IceDegreeCard from '../../components/Layout/DegreeCard/IceDegreeCard/IceDegreeCard';
 import DrinkDegreeCard from '../../components/Layout/DegreeCard/DrinkDegreeCard/DrinkDegreeCard';
 import Button from '../../components/UI/Button/Button';
+import Layout from '../../components/Layout/Layout';
 
 import {
   cokeSoftDegree,
@@ -106,54 +107,56 @@ class DrinkResult extends Component {
     } = this.state.ingredients;
 
     return (
-      <div className="Drink-header">
-        <div className="Drink-container">
-          {this.pespiOrCoca(cokeOrPepsiValue)}
-          <DegreeCard
-            title={run.name}
-            value={runValue}
-            strong={run.strong}
-            weak={run.weak}
-            soft={run.soft}
-          />
-          <IceDegreeCard
-            title={ice.name}
-            value={iceValue}
-            pertinence={ice.pertinence}
-          />
-        </div>
-        <div className="Degree-result">
-          {cokeOrPepsiValue === 'coke' && (
-            <DrinkDegreeCard
-              title="Resultado do Drink:"
-              ice={ice}
-              run={run}
-              softDrink={softDrink}
-              iceQtd={iceValue}
-              runQtd={runValue}
-              softQtd={softDrinkValue}
-              softName={cokeOrPepsiValue}
+      <Layout>
+        <div className="Drink-header">
+          <div className="Drink-container">
+            {this.pespiOrCoca(cokeOrPepsiValue)}
+            <DegreeCard
+              title={run.name}
+              value={runValue}
+              strong={run.strong}
+              weak={run.weak}
+              soft={run.soft}
             />
-          )}
-          {cokeOrPepsiValue === 'pepsi' && (
-            <DrinkDegreeCard
-              title="Resultado do Drink:"
-              ice={ice}
-              run={run}
-              softDrink={pepsi}
-              iceQtd={iceValue}
-              runQtd={runValue}
-              softQtd={softDrinkValue}
-              softName={cokeOrPepsiValue}
+            <IceDegreeCard
+              title={ice.name}
+              value={iceValue}
+              pertinence={ice.pertinence}
             />
-          )}
+          </div>
+          <div className="Degree-result">
+            {cokeOrPepsiValue === 'coke' && (
+              <DrinkDegreeCard
+                title="Resultado do Drink:"
+                ice={ice}
+                run={run}
+                softDrink={softDrink}
+                iceQtd={iceValue}
+                runQtd={runValue}
+                softQtd={softDrinkValue}
+                softName={cokeOrPepsiValue}
+              />
+            )}
+            {cokeOrPepsiValue === 'pepsi' && (
+              <DrinkDegreeCard
+                title="Resultado do Drink:"
+                ice={ice}
+                run={run}
+                softDrink={pepsi}
+                iceQtd={iceValue}
+                runQtd={runValue}
+                softQtd={softDrinkValue}
+                softName={cokeOrPepsiValue}
+              />
+            )}
+          </div>
+          <div>
+            <Link to="/">
+              <Button style="btn-goBack">Voltar</Button>
+            </Link>
+          </div>
         </div>
-        <div>
-          <Link to="/">
-            <Button style="btn-goBack">Voltar</Button>
-          </Link>
-        </div>
-      </div>
+      </Layout>
     );
   }
 }
