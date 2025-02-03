@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const badge = props => <span>{props.value}</span>;
+const badge = (props) => <span>{props.value}</span>
 
-export default badge;
+export default badge

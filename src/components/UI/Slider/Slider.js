@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/lab/Slider';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Slider from '@material-ui/lab/Slider'
 
 const styles = {
   root: {
     display: 'flex',
-    height: 230,
+    height: 230
   },
   slider: {
     padding: '0px 15px',
     display: 'flex',
-    justifyContent: 'center',
-  },
-};
+    justifyContent: 'center'
+  }
+}
 
 class VerticalSlider extends Component {
-  render() {
-    const { classes, value, onChange } = this.props;
+  render () {
+    const { classes, value, onChange } = this.props
 
     return (
       <div className={classes.root}>
@@ -28,12 +28,12 @@ class VerticalSlider extends Component {
           vertical
         />
       </div>
-    );
+    )
   }
 }
 
 VerticalSlider.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styles)(VerticalSlider);
+export default withStyles(styles)(VerticalSlider)

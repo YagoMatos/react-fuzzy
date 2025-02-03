@@ -1,10 +1,10 @@
-import React from 'react';
-import VerticalSlider from '../../UI/Slider/Slider';
-import Input from '../../UI/Input/Input';
+import React from 'react'
+import VerticalSlider from '../../UI/Slider/Slider'
+import Input from '../../UI/Input/Input'
 
-import './IngredientsCard.css';
+import './IngredientsCard.css'
 
-const ingredientsCard = props => {
+const ingredientsCard = (props) => {
   const {
     softDrinkValue,
     onChangeSoftDrinkValue,
@@ -15,12 +15,12 @@ const ingredientsCard = props => {
     onChangeInputRun,
     onChangeInputIce,
     onChangeInputSoft,
-    refInput,
-  } = props;
+    refInput
+  } = props
 
   return (
-    <div className="content-ingredients">
-      <div className="content-item">
+    <div className='content-ingredients'>
+      <div className='content-item'>
         <VerticalSlider
           value={softDrinkValue}
           onChange={onChangeSoftDrinkValue}
@@ -31,7 +31,7 @@ const ingredientsCard = props => {
           changed={onChangeInputSoft}
         />
       </div>
-      <div className="content-item">
+      <div className='content-item'>
         <VerticalSlider value={runValue} onChange={onChangeRunValue} />
         <Input
           refInput={refInput}
@@ -39,7 +39,7 @@ const ingredientsCard = props => {
           changed={onChangeInputRun}
         />
       </div>
-      <div className="content-item">
+      <div className='content-item'>
         <VerticalSlider value={iceValue} onChange={onChangeIceValue} />
         <Input
           refInput={refInput}
@@ -48,7 +48,7 @@ const ingredientsCard = props => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ingredientsCard;
+export default ingredientsCard
